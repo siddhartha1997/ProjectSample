@@ -1,0 +1,46 @@
+﻿@model IEnumerable<HotelManagementClient.Models.Room>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.RoomNo })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
